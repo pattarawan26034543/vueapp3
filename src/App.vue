@@ -3,7 +3,9 @@
     <v-app>
       <v-navigation-drawer app>
         <p>navigation drwwer</p>
+        <v-btn small color="error">So Cute</v-btn>
       </v-navigation-drawer>
+      
       <v-app-bar app>
         <p>app ber</p>
       </v-app-bar>
