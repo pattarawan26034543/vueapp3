@@ -186,6 +186,8 @@
 </template>
 
 <script>
+import axios from 'axios';
+
 export default {data: () => ({
       valid: true,
       name: '',
@@ -239,8 +241,8 @@ export default {data: () => ({
       validate () {
         // this.$refs.form.validate()
     if (this.$refs.form.validate()){
-       // console.log(this.name)
-      //  console.log(this.lastname)
+         //console.log(this.name)
+        //console.log(this.lastname)
         //console.log(this.email)
         //console.log(this.tel)
         //console.log(this.select)
@@ -251,6 +253,28 @@ export default {data: () => ({
         //console.log(this.a_subdis)
         //console.log(this.a_dis)
         //console.log(this.a_province)
+
+        //axios.get('http://localhost:3000/api/customers/show').then((res) =>{
+          //console.log(res);
+        //});
+        axios.post('http://localhost:3000/api/customers',{
+        "c_name":this.name,
+        "c_lastname":this.lastname, 
+        "c_tel":this.tel,
+        "c_email":this.email, 
+        "c_num":this.a_number, 
+        "c_mu":this.a_groub, 
+        "c_tanon":this.a_road, 
+        "c_soi":this.a_lane, 
+        "c_tumbon":this.a_subdis, 
+        "c_amphor":this.a_dis, 
+        "c_jungwan":this.a_province, 
+        "c_sex":this.select
+
+        }).then((res) =>{
+          console.log(res);
+        });
+
         this.desserts.push({
           fullname: `${this.name} ${this.lastname}`,
           tel: `${this.tel}`,
